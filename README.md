@@ -38,10 +38,14 @@ Solutions to Interview Cake questions in Java, C++ and Python
 | [33. Which Appears Twice](https://www.interviewcake.com/question/java/which-appears-twice)  ||||
 | [34. Word Cloud Data](https://www.interviewcake.com/question/java/word-cloud)  ||||
 | [35. In-Place Shuffle](https://www.interviewcake.com/question/java/shuffle)  ||||
-| []()  ||||
-| []()  ||||
-| []()  ||||
-| []()  ||||
-| []()  ||||
-| []()  ||||
-| []()  ||||
+| [36. Cafe Order Checker](https://www.interviewcake.com/question/java/cafe-order-checker)  ||||
+| [37. Simulate 5-sided die](https://www.interviewcake.com/question/java/simulate-5-sided-die)  ||||
+| [38. Simulate 7-sided die](https://www.interviewcake.com/question/java/simulate-7-sided-die)  ||||
+| [39. Two Egg Problem](https://www.interviewcake.com/question/java/two-egg-problem)  ||||
+| [40. Find Repeat, Space Edition](https://www.interviewcake.com/question/java/find-duplicate-optimize-for-space)  ||||
+| [41. Find Repeat, Space Edition BEAST MODE](https://www.interviewcake.com/question/java/find-duplicate-optimize-for-space-beast-mode)  ||||
+| [42. Find Duplicate Files](https://www.interviewcake.com/question/java/find-duplicate-files)  ||||
+| [43. Merge Sorted Arrats](https://www.interviewcake.com/question/java/merge-sorted-arrays)  ||||
+| [44. URL Shortener](https://www.interviewcake.com/question/java/url-shortener)  ||||
+| [45. Graph Coloring](https://www.interviewcake.com/question/java/graph-coloring)  ||||
+| [46. MeshMessage](https://www.interviewcake.com/question/java/mesh-message)  ||||

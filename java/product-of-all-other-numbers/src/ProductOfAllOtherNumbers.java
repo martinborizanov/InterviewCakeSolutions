@@ -6,15 +6,16 @@ public class ProductOfAllOtherNumbers {
 
         int[] RV = new int[integers.length];
 
+        int soFar = 1;
         for(int i = 0; i < integers.length; i++){
-            int result = 1;
+            RV[i] = soFar;
+            soFar *= integers[i];
+        }
 
-            for(int j = 0; j < integers.length; j++){
-                if(j == i) continue;
-                result *= integers[j];
-            }
-
-            RV[i] = result;
+        soFar = 1;
+        for( int i = integers.length - 1; i >= 0; i-- ){
+            RV[i] *= soFar;
+            soFar *= integers[i];
         }
 
         return RV;

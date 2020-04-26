@@ -15,5 +15,8 @@ class AppleStocksTest {
         stockPrices = new int[] {10, 9, 8, 7, 6, 5, 4, 3 };
         Assert.assertEquals(-1, appleStocks.getMaxProfit(stockPrices));
 
+        stockPrices = new int[] {10, 10, 10, 10 };
+        Assert.assertEquals(0, appleStocks.getMaxProfit(stockPrices));
+
     }
 }

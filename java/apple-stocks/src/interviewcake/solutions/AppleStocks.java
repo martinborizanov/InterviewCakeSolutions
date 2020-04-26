@@ -4,34 +4,22 @@ import java.util.Arrays;
 
 public class AppleStocks {
 
-    public int getMaxProfit( int[] stockPrices ){
+    public int getMaxProfit( int[] stockPrices ) throws IllegalArgumentException {
 
-        int buyPrice = stockPrices[0];
-        int buyPriceTime = 0;
+        if( stockPrices.length <= 2) throw new IllegalArgumentException("Can't calculate with less than 2 prices");
 
-        for(int time = 0; time < stockPrices.length; time++ )
-            if (buyPrice > stockPrices[time]) {
-                buyPrice = stockPrices[time];
-                buyPriceTime = time;
-            }
+        int minPrice = stockPrices[0];
+        int maxProfit = stockPrices[1] - stockPrices[0];
 
-        if( buyPriceTime == stockPrices.length-1 ) {
-            buyPrice =  stockPrices[0];
-            for (int time = 0; time < stockPrices.length - 1; time++)
-                if (buyPrice > stockPrices[time]) {
-                    buyPrice = stockPrices[time];
-                }
-        }
-        int[] subsequentPrices = Arrays.copyOfRange(stockPrices,buyPriceTime, stockPrices.length);
 
-        int sellPrice = 0;
-        int lowestRemainingPrice = 0;
+        for( int i = 1; i < stockPrices.length; i++){
 
-        for (int subsequentPrice : subsequentPrices) {
-            if (sellPrice < subsequentPrice) sellPrice = subsequentPrice;
-            if (lowestRemainingPrice > subsequentPrice) lowestRemainingPrice = subsequentPrice;
+            maxProfit = Math.max( maxProfit, stockPrices[i] - minPrice );
+            minPrice = Math.min( stockPrices[i], minPrice);
+
+
         }
 
-        return ( sellPrice == 0 ) ? lowestRemainingPrice - buyPrice : sellPrice - buyPrice;
+        return maxProfit;
     }
 }

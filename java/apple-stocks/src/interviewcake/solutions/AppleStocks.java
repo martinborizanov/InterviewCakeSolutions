@@ -11,13 +11,9 @@ public class AppleStocks {
         int minPrice = stockPrices[0];
         int maxProfit = stockPrices[1] - stockPrices[0];
 
-
-        for( int i = 1; i < stockPrices.length; i++){
-
+        for( int i = 1; i < stockPrices.length; i++ ){
             maxProfit = Math.max( maxProfit, stockPrices[i] - minPrice );
             minPrice = Math.min( stockPrices[i], minPrice);
-
-
         }
 
         return maxProfit;

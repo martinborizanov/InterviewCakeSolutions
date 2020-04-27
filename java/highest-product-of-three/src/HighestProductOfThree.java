@@ -15,6 +15,5 @@ public class HighestProductOfThree {
         boolean useNegatives = firstL * secondL > firstH * secondH;
 
         return useNegatives ? firstL*secondL*firstH : firstH*secondH*thirdH;
-
     }
 }

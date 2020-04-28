@@ -3,17 +3,25 @@ import java.util.Arrays;
 public class HighestProductOfThree {
     int calcHighestProduct( int[] arrayOfInts ){
 
-        Arrays.sort(arrayOfInts);
+        int highestProductOf3 = arrayOfInts[0] * arrayOfInts[1] * arrayOfInts[2];
+        int highestProductOf2 = arrayOfInts[0] * arrayOfInts[1];
+        int lowestProductOf2  = arrayOfInts[0] * arrayOfInts[1];
 
-        int firstH  = arrayOfInts[arrayOfInts.length - 1];
-        int secondH = arrayOfInts[arrayOfInts.length - 2];
-        int thirdH  = arrayOfInts[arrayOfInts.length - 3];
+        int highest = arrayOfInts[0];
+        int lowest  = arrayOfInts[0];
 
-        int firstL = arrayOfInts[0];
-        int secondL = arrayOfInts[1];
+        for(int current : arrayOfInts){
 
-        boolean useNegatives = firstL * secondL > firstH * secondH;
+            highestProductOf3 = Math.max( Math.max( highestProductOf3, highestProductOf2 * current ), lowestProductOf2 * current);
 
-        return useNegatives ? firstL*secondL*firstH : firstH*secondH*thirdH;
+            lowestProductOf2 = Math.min( Math.min( lowestProductOf2, current * lowest ), current * highest );
+            highestProductOf2 = Math.max( Math.max( highestProductOf2, current * lowest ), current * highest );
+
+            lowest = Math.min( lowest, current );
+            highest = Math.max( highest, current );
+        }
+
+        return highestProductOf3;
     }
 }
+

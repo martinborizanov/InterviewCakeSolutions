@@ -7,7 +7,7 @@ Solutions to Interview Cake questions in Java, C++ and Python
 | [2. Product of All Other Number ](https://www.interviewcake.com/question/java/product-of-other-numbers)  |[ProductOfAllOtherNumbers.java](https://github.com/martinborizanov/InterviewCakeSolutions/blob/master/java/product-of-all-other-numbers/src/ProductOfAllOtherNumbers.java)|||
 | [3. Highest Product of 3](https://www.interviewcake.com/question/java/highest-product-of-3)  |[HighestProductOfThree.java](java/highest-product-of-three/src/HighestProductOfThree.java)|||
 | [4. Merging Meeting Times](https://www.interviewcake.com/question/java/merging-ranges)  |[Meeting.java](java/merging-meeting-times/src/Meeting.java)|||
-| [5. Making Change](https://www.interviewcake.com/question/java/coin)  ||||
+| [5. Making Change](https://www.interviewcake.com/question/java/coin)  |[ChangeCalculator.java](java/making-change/src/ChangeCalculator.java)|||
 | [6. Rectangular Love](https://www.interviewcake.com/question/java/rectangular-love)  ||||
 | [7. Temperature Tracker](https://www.interviewcake.com/question/java/temperature-tracker)  ||||
 | [8. Balanced Binary Tree](https://www.interviewcake.com/question/java/balanced-binary-tree)  ||||

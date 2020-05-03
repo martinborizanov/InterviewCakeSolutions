@@ -17,6 +17,7 @@ public class Rectangle {
         this.rightX = leftX + width;
         this.bottomY = bottomY;
         this.topY = bottomY + height;
+
         this.width  = width;
         this.height = height;
     }
@@ -45,23 +46,52 @@ public class Rectangle {
         return height;
     }
 
-    public boolean intersectsWith( Rectangle anotherRectangle ){
+    public boolean sameAs( Rectangle rectangle ){
+        return rightX == rectangle.getRightX() && leftX == rectangle.getLeftX()
+                && topY == rectangle.getTopY() && bottomY == rectangle.getBottomY();
+    }
+
+
+
+    public Rectangle getIntersection(Rectangle anotherRectangle ){
 
         int aTopY = anotherRectangle.getTopY();
         int aBottomY = anotherRectangle.getBottomY();
         int aLeftX = anotherRectangle.getLeftX();
         int aRightX = anotherRectangle.getRightX();
 
-        boolean leftXOverlap = leftX <= aLeftX && aLeftX <= rightX;
-        boolean rightXOverlap = leftX <= aRightX && aRightX <= rightX;
-        boolean topYOverlap = bottomY <= aTopY && aTopY <= topY;
-        boolean bottomYOverlap = bottomY <= aBottomY && aBottomY <= topY;
+        boolean overlapsWith = false;
 
-        if( leftXOverlap && topYOverlap ) return true;
-        if( leftXOverlap && bottomYOverlap ) return true;
-        if( rightXOverlap && topYOverlap ) return true;
-        if( rightXOverlap && bottomYOverlap ) return true;
+        int newLeftX;
+        int newRightX;
+        int newTopY;
+        int newBottomY;
 
-        return false;
+        boolean leftXOverlap = withinXCoordinates(aLeftX);
+        boolean rightXOverlap = withinXCoordinates(aRightX);
+        boolean topYOverlap = withinYCoordinates(aTopY);
+        boolean bottomYOverlap = withinYCoordinates(aBottomY);
+
+        newLeftX = leftXOverlap ? aLeftX : leftX;
+        newRightX = rightXOverlap ? aRightX : rightX;
+        newTopY = topYOverlap ? aTopY : topY;
+        newBottomY = bottomYOverlap ? aBottomY : bottomY;
+
+        if( leftXOverlap && topYOverlap ) overlapsWith = true;
+        if( leftXOverlap && bottomYOverlap ) overlapsWith = true;
+        if( rightXOverlap && topYOverlap ) overlapsWith = true;
+        if( rightXOverlap && bottomYOverlap ) overlapsWith = true;
+
+        // return self, if no overlapping
+        if(overlapsWith == false) return new Rectangle(0,0,0,0);
+        else return new Rectangle(newLeftX, newBottomY, newRightX - newLeftX, newTopY - newBottomY);
+    }
+
+    private boolean withinYCoordinates(int anotherY) {
+        return bottomY <= anotherY && anotherY <= topY;
+    }
+
+    private boolean withinXCoordinates(int anotherX) {
+        return leftX <= anotherX && anotherX <= rightX;
     }
 }

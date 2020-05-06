@@ -51,6 +51,42 @@ public class BinaryExpressionTree {
         return focusNode;
     }
 
+    //TODO Validate contents of the expression - Only digits and +-*/
+
+    public static double processTree( Node node ){
+
+        if( node.left == null && node.right == null ) return (double) (node.contents-'0');
+
+        double leftOperand = 0;
+        double rightOperand = 0;
+        double result = 0;
+
+        if(node.left != null ){
+            leftOperand = processTree(node.left);
+        }
+
+        if(node.right != null){
+            rightOperand = processTree(node.right);
+        }
+
+        switch (node.contents){
+            case '*':
+                result = leftOperand * rightOperand;
+                break;
+            case '/':
+                result = leftOperand / rightOperand;
+                break;
+            case '+':
+                result = leftOperand + rightOperand;
+                break;
+            case '-':
+                result = leftOperand - rightOperand;
+                break;
+        }
+
+        return result;
+    }
+
     public static void printTree( Node node ){
 
         if( node.left != null ) {
@@ -78,6 +114,8 @@ public class BinaryExpressionTree {
         Node root = binaryExpressionTree.root;
 
         printTree(root);
+
+        System.out.println(processTree(root));
 
     }
 }

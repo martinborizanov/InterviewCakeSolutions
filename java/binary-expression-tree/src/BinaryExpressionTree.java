@@ -51,6 +51,23 @@ public class BinaryExpressionTree {
         return focusNode;
     }
 
+    public static void printTree( Node node ){
+
+        if( node.left != null ) {
+            System.out.print("(");
+            printTree(node.left);
+        }
+
+        System.out.printf("%s",node.contents);
+
+        if( node.right != null ){
+            printTree(node.right);
+            System.out.print(")");
+        }
+
+        return;
+    }
+
     public static void main(String[] args) {
 
         String expression = "1*2/3+4/5*6+7-8*9";
@@ -60,6 +77,7 @@ public class BinaryExpressionTree {
 
         Node root = binaryExpressionTree.root;
 
-        System.out.println("Blah!");
+        printTree(root);
+
     }
 }
